@@ -1,0 +1,7 @@
+---
+applications:
+- name: cf-springBootUserService
+  path: target/cf-springBootUserService-0.0.1-SNAPSHOT.jar
+  memory: 768M
+  instances: 1
+  random-route: true

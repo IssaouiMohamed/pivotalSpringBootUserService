@@ -1,4 +1,4 @@
-package vom.imk.springBootUserService;
+package vom.imk.springBootUserService.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import vom.imk.springBootUserService.model.User;
+import vom.imk.springBootUserService.services.UserService;
+
 
 @RestController
 public class UserController {
@@ -20,7 +23,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@GetMapping("getUserById/{id}")
+	@GetMapping("/getUserById/{id}")
 	public ResponseEntity<?> getUserById(@PathVariable Long id) {
 		logger.info(" getUserById called ....");
 		User user = userService.getUser(id);
@@ -28,12 +31,12 @@ public class UserController {
 				: ResponseEntity.status(HttpStatus.NOT_FOUND).body("USER NOT FOND !");
 	}
 
-	@PostMapping("addUser")
+	@PostMapping("/addUser")
 	public ResponseEntity<?> addUser(@RequestBody User user) {
 		logger.info(" addUser called ....");
 
 		if (user != null) {
-			userService.createUser(user);
+			userService.addUser(user);
 			return ResponseEntity.status(HttpStatus.OK).body(user);
 		}
 
@@ -41,7 +44,7 @@ public class UserController {
 
 	}
 
-	@GetMapping("deleteUserById/{id}")
+	@GetMapping("/deleteUserById/{id}")
 	public ResponseEntity<?> deleteUserById(@PathVariable Long id) {
 		logger.info("deleteUserById called ....");
 		boolean res = userService.deleteUser(id);

@@ -1,4 +1,4 @@
-package vom.imk.springBootUserService;
+package vom.imk.springBootUserService.services;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,6 +7,9 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
+
+import vom.imk.springBootUserService.model.User;
+import vom.imk.springBootUserService.repo.UserRepository;
 
 @Component
 public class UserService {
@@ -25,13 +28,13 @@ public class UserService {
 	 *  	* Spring call always the service to create a new user
 	 *  
 	 */
-	/// @Cacheable(value = "user")
+	 @Cacheable(value = "user")
 	// @CacheEvict annotation will be used to delete the data from existing cache.
-	@CacheEvict(value = "user", key = "#user.getId()")
-	public User createUser(User user) {
+	//@CacheEvict(value = "user", key = "#user.getId()")
+	public User addUser(User user) {
 		User result = null;
 		if (!userRepository.exists(user.getId())) {
-			logger.info("createUser service called ..." +user);
+			logger.info("addUser service called ..." +user);
 			result = this.userRepository.save(user);
 		}
 		return result;

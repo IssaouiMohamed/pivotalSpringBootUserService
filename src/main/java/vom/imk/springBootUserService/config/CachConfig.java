@@ -1,4 +1,4 @@
-package vom.imk.springBootUserService;
+package vom.imk.springBootUserService.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.CacheManager;

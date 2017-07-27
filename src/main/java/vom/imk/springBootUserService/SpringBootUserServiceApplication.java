@@ -1,11 +1,7 @@
 package vom.imk.springBootUserService;
 
-import java.util.Arrays;
-
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class SpringBootUserServiceApplication {
@@ -19,14 +15,14 @@ public class SpringBootUserServiceApplication {
 	 * @param userepository
 	 * @return
 	 */
-	@Bean
+	/*@Bean
 	CommandLineRunner commandLineRunner (UserRepository userepository) {
 		return (args) -> {
 			userepository.save(Arrays.asList(new User("Issaoui","Mohamed"),
 												new User("Ali","Med"),
 												new User("Jack","Jack")));
 		};
-	}
+	}*/
 	
 	
 }

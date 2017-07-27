@@ -1,4 +1,4 @@
-package vom.imk.springBootUserService;
+package vom.imk.springBootUserService.model;
 
 import java.io.Serializable;
 

@@ -1,5 +1,7 @@
 package vom.imk.springBootUserService.services;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,8 +55,11 @@ public class UserService {
 		return null;
 	}
 	
+	
+	// @CachePut used to update data in cashing
 	@CachePut(value="user", key="#id")
-	public User updateUser(Long id , User user) {
+	public User updateUser(User user) {
+		logger.info("updateUser service called ..."  );
 		User result = null;
 		if (userRepository.exists(user.getId())) {
 			result = this.userRepository.save(user);
@@ -74,7 +79,7 @@ public class UserService {
 		return deleted;
 
 	}
-
+	
 	
 
 }

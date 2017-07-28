@@ -19,6 +19,7 @@ import vom.imk.springBootUserService.model.User;
 import vom.imk.springBootUserService.services.UserService;
 
 @RestController
+@RequestMapping("${api.version}")
 public class UserController {
 
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -29,8 +30,8 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping("/")
-	public String index() {
+	@RequestMapping("/welcome")
+	public String welcome() {
 		return " ============ " + welcomeMessage + "!    ============== ";
 	}
 
